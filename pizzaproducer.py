@@ -59,8 +59,7 @@ class PizzaProvider(BaseProvider):
             for topping in range(random.randint(0, max_toppings_in_pizza)):
                 toppings.append(FakerInstance.pizza_topping())
             pizzas.append({
-                'pizzaName': FakerInstance.pizza_name(),
-                'additionalToppings': toppings
+                'pizzaName': FakerInstance.pizza_name()
             })
         # message composition
         message = {
