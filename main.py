@@ -30,10 +30,9 @@ def produce_msgs(cert_folder = '~/kafka-pizza/',
                  subject = 'pizza'):
     producer = KafkaProducer(
         bootstrap_servers=hostname + ':' + port,
-        security_protocol='SSL',
+        security_protocol='SASL_SSL',
+        sasl_mechanism='GSSAPI',
         ssl_cafile=cert_folder+'/ca.pem',
-        ssl_certfile=cert_folder+'/service.cert',
-        ssl_keyfile=cert_folder+'/service.key',
         value_serializer=lambda v: json.dumps(v).encode('ascii'),
         key_serializer=lambda v: json.dumps(v).encode('ascii')
     )
