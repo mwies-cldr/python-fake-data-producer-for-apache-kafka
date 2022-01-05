@@ -39,8 +39,10 @@ def produce_msgs(cert_folder = '~/kafka-pizza/',
 
     if nr_messages <= 0:
         nr_messages = float('inf')
-    i = 0
-    
+        
+    i = int(time.time() * 1000)
+    nr_messages = nr_messages + i    
+
     if subject == 'stock':
         fake.add_provider(StockProvider)
     elif subject == 'realstock':
